@@ -1,19 +1,17 @@
-import { FunctionComponent } from "react";
-import CardBody from './CardBody';
+import { FunctionComponent, ReactNode } from "react";
 
 interface CardProps {
-  sizeRow: number,
-  body: typeof CardBody
+  sizeRow?: number,
+  className?: string,
+  children: JSX.Element | JSX.Element[] | ReactNode,
 }
 
-const Card: FunctionComponent<CardProps> = (props) => {
+const Card: FunctionComponent<CardProps> = ({children, sizeRow, ...props}) => {
   console.log(props);
   return (
-    <div className={"col-"}>
-      <div className="card ">
-        <div className="card-body" style={{ height: "10em" }}>
-
-        </div>
+    <div className={`col-${sizeRow}`}>
+      <div className={`card ${props.className ?? ""}`}>
+        { children }
       </div>
     </div>
   );

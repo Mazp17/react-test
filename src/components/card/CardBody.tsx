@@ -1,14 +1,14 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, ReactNode } from "react";
 
 interface CardBodyProps {
-  
+  children: JSX.Element | JSX.Element[] | ReactNode,
 }
  
-const CardBody: FunctionComponent<CardBodyProps> = () => {
+const CardBody: FunctionComponent<CardBodyProps> = ({children}) => {
   return (
-    <h1>
-      hola
-    </h1>
+    <div className="card-body">
+      { children }
+    </div>
   );
 }
  
